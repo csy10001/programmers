@@ -5,7 +5,7 @@ class Solution {
         for(i=0; i < numbers.length; i++){
             sum += numbers[i];
         }
-        double average = (double) sum / numbers.length;
+        double average = sum / numbers.length;
         return average;
     }
 }
