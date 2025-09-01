@@ -14,15 +14,17 @@ class Solution {
             if (answers[i] == p3[i % p3.length]) score[2]++;
         }
 
-        int maxScore = Math.max(score[0], Math.max(score[1], score[2]));
+        int max = Math.max(score[0], Math.max(score[1], score[2]));
 
-        List<Integer> result = new ArrayList<>();
+        int size = 0;
+        for (int s : score) if (s == max) size++;
+
+        int[] result = new int[size];
+        int idx = 0;
         for (int i = 0; i < 3; i++) {
-            if (score[i] == maxScore) {
-                result.add(i + 1);
-            }
+            if (score[i] == max) result[idx++] = i + 1;
         }
-
-        return result.stream().mapToInt(Integer::intValue).toArray();
+        return result;
     }
 }
+
